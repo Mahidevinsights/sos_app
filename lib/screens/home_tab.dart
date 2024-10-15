@@ -20,61 +20,69 @@ class HomeContent extends StatelessWidget {
         child: Column(
           children: [
             // Emergency SOS button
-            Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15), // Rounded corners
-              ),
-              child: Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(
-                          'Emergency help needed?',
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(height: 2),
-                        Text(
-                          'Just hold the button to call',
-                          style: TextStyle(fontSize: 14, color: Colors.grey),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(height: 60),
-                      ],
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SosRequestScreen()));
+              },
+              child: Card(
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15), // Rounded corners
+                ),
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            'Emergency help needed?',
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                          SizedBox(height: 2),
+                          Text(
+                            'Just hold the button to call',
+                            style: TextStyle(fontSize: 14, color: Colors.grey),
+                            textAlign: TextAlign.center,
+                          ),
+                          SizedBox(height: 60),
+                        ],
+                      ),
                     ),
-                  ),
-                  Positioned(
-                    bottom: -60,
-                    left: 0,
-                    right: 0,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const SosRequestScreen()));
-                      },
-                      child: Container(
-                        width: 135,
-                        height: 110,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                                'assets/images/sos_image.png'), // Replace with your image path
-                            fit: BoxFit.contain,
+                    Positioned(
+                      bottom: -60,
+                      left: 0,
+                      right: 0,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const SosRequestScreen()));
+                        },
+                        child: Container(
+                          width: 135,
+                          height: 110,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/images/sos_image.png'), // Replace with your image path
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
 
